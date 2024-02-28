@@ -24,5 +24,5 @@ class Category extends Model
         return $this->hasMany(Type::class);
     }
 
-   
+   //edit
 }
