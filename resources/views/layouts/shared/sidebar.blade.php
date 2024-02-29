@@ -80,7 +80,7 @@
 					</a>
 
 					<ul style="display: none;">
-
+                        <li><a href="/statuses">Status</a></li>
 						<li><a href="/department">Department</a></li>
 						<li><a href="/categories">Category</a></li>
 						<li><a href="/types">Type</a></li>

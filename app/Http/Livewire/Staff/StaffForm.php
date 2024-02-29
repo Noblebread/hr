@@ -2,15 +2,17 @@
 
 namespace App\Http\Livewire\Staff;
 
+use App\Models\Department;
 use Livewire\Component;
 use Carbon\Carbon;
 use App\Models\Gender;
 use App\Models\Staff;
-
+// use App\Models\Status;
 
 class StaffForm extends Component
 {
-    public $staffId, $name, $address, $gender_id, $birthdate;
+    public $staffId, $id_no, $first_name, $middle_name, $last_name, $contact_number, $gender_id, $birthdate, $age, $department_id;
+    // public $status_id;
     
     public $action = '';  //flash
     public $message = '';  //flash
@@ -30,25 +32,37 @@ class StaffForm extends Component
      //edit
      public function staffId($staffId)
      {
-         $this->staffId = $staffId;
-         $staff = Staff::whereId($staffId)->first();
-
-         $this->name = $staff->name;
-         $this->address= $staff->address;
-         $this->gender_id = $staff->gender_id;
-         $this->birthdate = $staff->birthdate;
-        
+        $this->staffId = $staffId;
+        $staff = Staff::whereId($staffId)->first();
+        $this->id_no = $staff->id_no;
+        $this->first_name = $staff->first_name;
+        $this->middle_name = $staff->middle_name;
+        $this->last_name = $staff->last_name;
+        $this->contact_number = $staff->contact_number;
+        $this->gender_id = $staff->gender_id;
+        $this->birthdate = $staff->birthdate;
+        $this->age= $staff->age;
+        $this->department_id = $staff->department_id;
+        // $this->status_id = $staff->status_id;
+     
+            
      }
- 
+    
      //store
      public function store()
      {
          $data = $this->validate([
             
-             'name' => 'required',
-             'address' => 'required',
-             'gender_id' => 'required',
-             'birthdate' => 'nullable',
+            'id_no' => 'required',
+            'first_name' => 'required',
+            'middle_name' => 'nullable',
+            'last_name' => 'required',
+            'contact_number' => 'required',
+            'gender_id' => 'nullable',
+            'birthdate' => 'required',
+            'age' => 'required',
+            'department_id' => 'required',
+            // 'status_id' => 'nullable',
              
          ]);
 
@@ -77,8 +91,13 @@ class StaffForm extends Component
     public function render()
     {
         $genders = Gender::all();
+        $departments = Department::all();
+        // $statuses = Status::all();
+
         return view('livewire.staff.staff-form',[
-                'genders' => $genders
+                'genders' => $genders,
+                'departments' => $departments,
+                // 'statuses' => $statuses
         ]);          
     }
 }

@@ -13,7 +13,7 @@ class Gender extends Model
         'name'
     ];
 
-    public function staff()
+    public function staffs()
     {
         return $this->hasOne(Staff::class, 'gender_id', 'id');
     }

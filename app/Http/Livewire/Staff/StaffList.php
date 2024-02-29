@@ -2,16 +2,16 @@
 
 namespace App\Http\Livewire\Staff;
 
-use App\Models\User;
+use App\Models\Staff;
+
 use Livewire\Component;
 
 class StaffList extends Component
 {
-    // public $staffId;
-    // public $search = '';
-   
-    // public $action = ''; //flash
-    // public $message = ''; //flash
+   public $staffId;
+   public $search = '';
+   public $action = ''; //flash
+   public $message = ''; //flash
 
     protected $listeners = [
         'refreshParentStaff' => '$refresh',
@@ -25,24 +25,41 @@ class StaffList extends Component
         $this->emit('refreshTable');
     }
 
+    public function createStaff()
+    {
+        $this->emit('resetInputFields');
+        $this->emit('openStaffModal');
+    }
+    
+    public function editStaff($staffId)
+    {
+        $this->staffId = $staffId;
+        $this->emit('staffId', $this->staffId);
+        $this->emit('openStaffModal');
+    }
+
+    public function deleteStaff($staffId)
+    {
+        Staff::destroy($staffId);
+
+        $action = 'error';
+        $message = 'Successfully Deleted';
+
+        $this->emit('flashAction', $action, $message);
+        $this->emit('refreshTable');
+    }
+
     public function render()
     {
-        // $staffsQuery = [];
-    
-
-        // if (!empty($this->search)) {
-        //     $staffsQuery = User::role(['staff'])->where(function ($query) {
-        //         $query
-        //             ->where('first_name', 'LIKE', '%' . $this->search . '%')
-        //             ->orWhere('last_name', 'LIKE', '%' . $this->search . '%');
-        //     });
-
-        //             $staffs = $staffsQuery->get();
+         if (empty($this->search)) {
+            $staffs  = Staff::all();
+        } else {
+            $staffs  = Staff::where('firs_name', 'LIKE', '%' . $this->search . '%')->get();
+        }
        
 
         return view('livewire.staff.staff-list', [
-          
-            // 'staffs' => $staffs,
+            'staffs' => $staffs,
         ]);
     }
 }

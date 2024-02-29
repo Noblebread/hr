@@ -21,6 +21,12 @@
 							<div class="col">
 								<div class="doctor-table-blk">
 									<h3>Staff List</h3>
+									<div class="doctor-search-blk">
+										<div class="add-group">
+											<a wire:click="createStaff" class="btn btn-primary ms-2"><img src="{{ asset('assets/img/icons/plus.svg') }}" alt>
+											</a>
+										</div>
+									</div>
 								</div>
 							</div>
 							<div class="col-auto text-end float-end ms-auto download-grp">
@@ -50,22 +56,54 @@
 						<table class="table border-0 custom-table comman-table datatable mb-0">
 							<thead>
 								<tr>
-									<th style="width: 60%">Name</th>
-									
-									<th style="width: 40%">Role</th>
+									<th style="width: 10%">ID</th>
+									<th style="width: 15%">Name</th>
+									<th style="width: 15%">Contacts</th>
+									<th style="width: 10%">Gender</th>
+									<th style="width: 10%">Birthdate</th>
+									<th style="width: 5%">age</th>
+									<th style="width: 15%">Department</th>
+									{{-- <th style="width: 10%">Status</th> --}}
+									<th style="width: 10%">Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								@foreach ($staffs as $staff)
 									<tr>
 										<td>
+											{{ $staff->id_no }} 
+										</td>
+										<td>
 											{{ $staff->first_name }} {{ $staff->middle_name ?? '' }} {{ $staff->last_name }}
 										</td>
 										
 										<td>
-											@foreach ($staff->roles as $r)
-                                                <span class="badge bg-success text-capitalize">{{ $r->name }}</span>
-                                            @endforeach
+											{{ $staff->contact_number }}	
+										</td>
+										<td>
+											{{ $staff->gender_id }}
+										</td>
+										<td>
+											{{ $staff->birthdate }}
+										</td>
+										<td>
+											{{ $staff->age}}
+										</td>
+										<td>
+											{{ $staff->department }}
+										</td>
+										{{-- <td>
+											{{ $staff->status }}
+										</td> --}}
+										<td class="text-center">
+											<div class="btn-group" role="group">
+												<button type="button" class="btn btn-primary btn-sm mx-1" wire:click="editStaff({{ $staff->id }})" title="Edit">
+													<i class='fa fa-pen-to-square'></i>
+												</button>
+												<a class="btn btn-danger btn-sm mx-1" wire:click="deleteStaff({{ $staff->id }})" title="Delete">
+													<i class="fa fa-trash"></i>
+												</a>
+											</div>
 										</td>
 									</tr>
 								@endforeach
@@ -77,12 +115,12 @@
 		</div>
 	</div>
 </div>
-{{-- <div aria-hidden="true" aria-labelledby="staffModal" class="modal fade" data-bs-backdrop="static"
+<div aria-hidden="true" aria-labelledby="staffModal" class="modal fade" data-bs-backdrop="static"
 	data-bs-keyboard="false" id="staffModal" role="dialog" tabindex="-1" wire.ignore.self>
 	<div class="modal-dialog modal-dialog-centered modal-lg">
 		<livewire:staff.staff-form />
 	</div>
-</div> --}}
+</div> 
 @section('custom_script')
 	@include('layouts.scripts.staff-scripts')
 @endsection
