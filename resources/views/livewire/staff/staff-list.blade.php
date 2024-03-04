@@ -81,7 +81,7 @@
 											{{ $staff->contact_number }}	
 										</td>
 										<td>
-											{{ $staff->gender_id }}
+											{{ $staff->genders?->name }}
 										</td>
 										<td>
 											{{ $staff->birthdate }}
@@ -90,7 +90,7 @@
 											{{ $staff->age}}
 										</td>
 										<td>
-											{{ $staff->department }}
+											{{ $staff->department->name }}
 										</td>
 										{{-- <td>
 											{{ $staff->status }}

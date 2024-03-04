@@ -66,6 +66,7 @@
                             <span class="login-danger">*</span>
                         </label>
                         <select class="form-control select" wire:model="gender_id">
+                            <option value="">Select Gender</option>
                             @foreach ($genders as $gender)
                             <option value="{{ $gender->id }}">
                                 {{ $gender->name }}
@@ -92,7 +93,7 @@
                             <span class="login-danger">*</span>
                         </label>
                         <select class="form-control select" wire:model="department_id">
-                        <option value="" disabled selected>Select a Department</option>
+                        <option value="">Select a Department</option>
                             @foreach ($departments as $department)
                             <option value="{{ $department->id }}">
                                 {{ $department->name }}

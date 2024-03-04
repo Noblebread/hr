@@ -58,9 +58,9 @@ class StaffForm extends Component
             'middle_name' => 'nullable',
             'last_name' => 'required',
             'contact_number' => 'required',
-            'gender_id' => 'nullable',
+            'gender_id' => 'required',
             'birthdate' => 'required',
-            'age' => 'required',
+            'age' => 'nullable',
             'department_id' => 'required',
             // 'status_id' => 'nullable',
              
@@ -96,7 +96,7 @@ class StaffForm extends Component
 
         return view('livewire.staff.staff-form',[
                 'genders' => $genders,
-                'departments' => $departments,
+                'departments' => $departments
                 // 'statuses' => $statuses
         ]);          
     }

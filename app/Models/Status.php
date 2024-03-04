@@ -15,5 +15,5 @@ class Status extends Model
     
     protected $table = 'statuses';
     protected $primaryKey = 'id';
-    protected $fillable = [ 'description' ];
+    protected $fillable = [ 'name' ];
 }

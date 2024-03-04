@@ -54,7 +54,7 @@ class StaffList extends Component
          if (empty($this->search)) {
             $staffs  = Staff::all();
         } else {
-            $staffs  = Staff::where('firs_name', 'LIKE', '%' . $this->search . '%')->get();
+            $staffs  = Staff::where('first_name', 'LIKE', '%' . $this->search . '%')->get();
         }
        
 
