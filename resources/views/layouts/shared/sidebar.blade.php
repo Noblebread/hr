@@ -28,32 +28,31 @@
 						<span>Document</span></a>
 				</li>
 
-				<li>
-					<a href="/depart"><span class="menu-side"><i class="fa-solid fa-person-walking"></i></span>
-						<span>Departure</span></a>
-				</li>
-{{-- 
 				<li class="submenu">
-					<a href="#"><span class="menu-side"><i class="fa-solid fa-user-group"></i></span>
-						<span>Tool Management</span> <span class="menu-arrow"></span>
+					<a href="#"><span class="menu-side"><i class="fa-solid fa-list"></i></span>
+						<span>Leave</span> <span class="menu-arrow"></span>
 					</a>
 
 					<ul style="display: none;">
 
-						<li><a href="/categories">Category</a></li>
-						<li><a href="/types">Type</a></li>
-						<li><a href="/tools">Tool</a></li>
+						<li><a href="">Approved Leave</a></li>
+						<li><a href="">Pending Leave</a></li>
+						<li><a href="">Declined Leave</a></li>
+						<li><a href="">History Leave</a></li>
+
+
 					</ul>
-				</li> --}}
+				</li>
+
 				<li>
 					<a href="/attendance"><span class="menu-side"><i class="fa-solid fa-clipboard-user"></i></span>
 						<span>Attendance</span></a>
 				</li>
 
-		        <li>
+		        {{-- <li>
 					<a href=""><span class="menu-side"><i class="fa-solid fa-warehouse"></i></span>
 						<span>Storage</span></a>
-				</li>
+				</li> --}}
 
 				
 

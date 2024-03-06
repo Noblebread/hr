@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Departure;
+namespace App\Http\Livewire\Leave;
 
 use Livewire\Component;
 
@@ -8,6 +8,6 @@ class CalendarView extends Component
 {
     public function render()
     {
-        return view('livewire.departure.calendar-view');
+        return view('livewire.leave.calendar-view');
     }
 }

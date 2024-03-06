@@ -54,69 +54,36 @@
 								</tr>
 							</thead>
 							<tbody>
-								{{-- @foreach ($requests as $request) --}}
+								@foreach ($documents as $document) 
 								<tr>
 									<td>
-										{{-- {{ $request->borrower->first_name ?? '' }} --}}
+										{{ $document->name}} 
 									</td>
-
-
-									
-
 									<td>
-										{{-- @if ($request->tool_keys)
-										@foreach ($request->tool_keys as $toolKey)
-										{{ $toolKey->tools->brand }}
-										@if (!$loop->last) --}}
-										{{-- Add a Space or separator between department names --}}
-										{{-- <br>
-										@endif
-										@endforeach
-										@else
-										No Tools Assigned
-										@endif --}}
+										{{ $document->type->title}} 
+									</td>
+									   
+									<td>
+										 {{ $document->department->name}} 
 									</td>
 
 									<td>
-										{{-- @if ($request->tool_keys)
-										@foreach ($request->tool_keys as $toolKey)
-										{{ $toolKey->status->description ?? ''}}
-										@if (!$loop->last) --}}
-										{{-- Add a Space or separator between department names --}}
-										{{-- <br>
-										@endif
-										@endforeach
-										@else
-										No Tools Assigned
-										@endif --}}
+										{{ $document->created_at }}
 									</td>
-
-									<td>
-                                        
-                                        {{-- {{ $request->updated_at->setTimezone('Asia/Manila')->format('m-d-Y H:i:s') }} --}}
-                                    
-                                    </td>
-
-								
-									
-
 
 									<td class="text-center">
-										{{-- <div class="btn-group" role="group">
-											<button type="button" class="btn btn-primary btn-sm mx-1" wire:click="editRequest({{ $request->id }})" title="Edit">
+										<div class="btn-group" role="group">
+											<button type="button" class="btn btn-primary btn-sm mx-1" wire:click="editDocument({{ $document->id }})" title="Edit">
 												<i class='fa fa-pen-to-square'></i>
 											</button>
-											<button type="button" class="btn btn-primary btn-sm mx-1" wire:click="returnRequest({{ $request->id }})" title="Return">
-												Return
-											</button>
-											<!-- <a class="btn btn-danger btn-sm mx-1" wire:click="deleteRequest({{ $request->id }})" title="Delete">
-													<i class="fa fa-trash"></i>
-												</a> -->
-										</div> --}}
+											<a class="btn btn-danger btn-sm mx-1" wire:click="deleteDocument({{ $document->id }})" title="Delete">
+												<i class="fa fa-trash"></i>
+											</a>
+										</div>
 									</td>
 
 								</tr>
-								{{-- @endforeach --}}
+								@endforeach
 							</tbody>
 						</table>
 					</div>

@@ -36,8 +36,7 @@
                 <div class="col-md-6">
                     <div class="form-group local-forms">
                         <label>
-                            Middle name
-                            <span class="login-danger">*</span>
+                            Middle name  
                         </label>
                         <input class="form-control" type="text" wire:model="middle_name" placeholder />
                     </div>
@@ -96,7 +95,7 @@
                         <option value="">Select a Department</option>
                             @foreach ($departments as $department)
                             <option value="{{ $department->id }}">
-                                {{ $department->name }}
+                                {{ $department->title }}
                             </option>
                             @endforeach
                         </select>

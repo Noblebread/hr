@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Status\StatusList;
 
 use App\Http\Livewire\Staff\StaffList;
-use App\Http\Livewire\Departure\DepartureList;
 use App\Http\Livewire\Document\DocumentList;
 use App\Http\Livewire\Attendance\AttendanceList;
 use App\Http\Livewire\Request\RequestList;
@@ -56,7 +55,7 @@ Route::middleware('auth')->group(function () {
     
     Route::get('statuses', StatusList::class);
     Route::get('documents', DocumentList::class);
-    Route::get('depart', DepartureList::class);
+    
     Route::get('attendance', AttendanceList::class);
     Route::get('requests', RequestList::class);
     

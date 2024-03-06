@@ -30,3 +30,4 @@ class StatusSeeder extends Seeder
         ]);
     }
 }
+

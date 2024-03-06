@@ -35,12 +35,38 @@
                         Department
                         <span class="login-danger">*</span>
                     </label>
-                    <select class="form-select" name="branch_id" wire:model="branch_id" required>
+                    <select class="form-select" name="department_id" wire:model="department_id" required>
                         <option selected="" value="">Choose...</option>
-
+                        @foreach ($departments as $department)
+                        <option value="{{ $department->id }}">
+                            {{ $department->name }}
+                        </option>
+                        @endforeach
                     </select>
                 </div>
                 </div>
+
+                <div class="col-md-12">
+
+                    <div class="form-group local-forms">
+                        <label>
+                            Type
+                            <span class="login-danger">*</span>
+                        </label>
+                        <select class="form-select" name="type_id" wire:model="type_id" required>
+                            <option selected="" value="">Choose...</option>
+                            
+                            @foreach ($types as $type)
+                            @if($type->category_id != 2)
+                            <option value="{{ $type->id}}">
+                                {{ $type->title }}
+                            </option>
+                            @endif
+                            @endforeach
+                        </select>
+                    </div>
+    
+                    </div>
                
 
 </div>

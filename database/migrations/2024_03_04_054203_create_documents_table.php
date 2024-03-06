@@ -13,7 +13,18 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
+            
+            $table->string('name');
+
+            $table->unsignedBigInteger('type_id')->nullable();
+            $table->foreign('type_id')->references('id')->on('types');
+
+            $table->unsignedBigInteger('department_id')->nullable();
+            $table->foreign('department_id')->references('id')->on('departments');
             $table->timestamps();
+
         });
     }
 

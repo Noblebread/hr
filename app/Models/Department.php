@@ -13,9 +13,10 @@ class Department extends Model
         'name'
     ];
 
-    // public function users()
-    // {
-    //     return $this->hasOne(User::class, 'branch_id', 'id');
-    // }
+    public function users()
+    {
+        return $this->hasOne(User::class, 'user_id', 'id');
+    }
+   
    
 }
