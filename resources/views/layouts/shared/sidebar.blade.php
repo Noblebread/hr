@@ -6,6 +6,20 @@
 					<a href="/"><span class="menu-side"><i class="fa-solid fa-house"></i></span>
 						<span>Dashboard</span></a>
 				</li>
+
+				{{-- <li class="submenu">
+					<a href="#"><span class="menu-side"><i class="fa-solid fa-envelope"></i></span>
+						<span>Request</span> <span class="menu-arrow"></span>
+					</a>
+
+					<ul style="display: none;">
+
+						<li><a href="/report">Document</a></li>
+						<li><a href="/report">Leave</a></li>
+
+					</ul>
+				</li> --}}
+
 				<li>
 					<a href="/requests"><span class="menu-side"><i class="fa-solid fa-envelope"></i></span>
 						<span>Request</span></a>
@@ -30,14 +44,14 @@
 
 				<li class="submenu">
 					<a href="#"><span class="menu-side"><i class="fa-solid fa-list"></i></span>
-						<span>Leave</span> <span class="menu-arrow"></span>
+						<span>Manage Leave</span> <span class="menu-arrow"></span>
 					</a>
 
 					<ul style="display: none;">
 
-						<li><a href="">Approved Leave</a></li>
-						<li><a href="">Pending Leave</a></li>
-						<li><a href="">Declined Leave</a></li>
+						<li><a href="/pending">Pending Leave</a></li>
+						<li><a href="/approve">Approved Leave</a></li>
+						<li><a href="/decline">Declined Leave</a></li>
 						<li><a href="">History Leave</a></li>
 
 

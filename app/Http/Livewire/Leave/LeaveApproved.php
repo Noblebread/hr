@@ -4,10 +4,10 @@ namespace App\Http\Livewire\Leave;
 
 use Livewire\Component;
 
-class LeaveForm extends Component
+class LeaveApproved extends Component
 {
     public function render()
     {
-        return view('livewire.leave.leave-form');
+        return view('livewire.leave.leave-approved');
     }
 }

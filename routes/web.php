@@ -3,18 +3,21 @@
 
 use App\Models\Request;
 
-use App\Http\Livewire\Type\TypeList;
+
 use App\Http\Livewire\User\UserList;
 use Illuminate\Support\Facades\Route;
 
 
-
-use App\Http\Livewire\Status\StatusList;
-
-use App\Http\Livewire\Staff\StaffList;
-use App\Http\Livewire\Document\DocumentList;
 use App\Http\Livewire\Attendance\AttendanceList;
 use App\Http\Livewire\Request\RequestList;
+use App\Http\Livewire\Staff\StaffList;
+use App\Http\Livewire\Document\DocumentList;
+use App\Http\Livewire\Leave\LeaveApproved;
+use App\Http\Livewire\Leave\LeaveDeclined;
+use App\Http\Livewire\Leave\LeavePending;
+
+use App\Http\Livewire\Type\TypeList;
+use App\Http\Livewire\Status\StatusList;
 use App\Http\Controllers\ProfileController;
 use App\Http\Livewire\Category\CategoryList;
 use App\Http\Controllers\DashboardController;
@@ -58,6 +61,9 @@ Route::middleware('auth')->group(function () {
     
     Route::get('attendance', AttendanceList::class);
     Route::get('requests', RequestList::class);
+    Route::get('approve', LeaveApproved::class);
+    Route::get('pending', LeavePending::class);
+    Route::get('decline', LeaveDeclined::class);
     
     Route::get('department', DepartmentList::class);
     Route::get('role', RoleList::class);

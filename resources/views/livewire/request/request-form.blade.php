@@ -21,11 +21,11 @@
                         <label>Name
                             <span class="login-danger">*</span>
                         </label>
-                        <select class="form-control select" wire:model="borrower_id">
+                        <select class="form-control select" wire:model="staff_id">
                             <option value="" disabled selected>Select a name</option>
-                            {{-- @foreach ($borrowers as $borrower) --}}
-                            {{-- <option value="{{ $borrower->id }}"> --}}
-                                {{-- ({{$borrower->first_name}}) {{ $borrower->last_name }} --}}
+                            {{-- @foreach ($staffs as $staff) --}}
+                            {{-- <option value="{{ $staff->id }}"> --}}
+                                {{-- ({{$staff->first_name}}) {{ $staff->last_name }} --}}
                             </option>
                             {{-- @endforeach --}}
                         </select>
@@ -41,7 +41,7 @@
                         <select class="form-control select"  wire:model="requestOption">
                             <option value="" disabled selected>Select your request</option>
                             <option value="document">Document</option>
-                            <option value="depart">Departure</option>
+                            <option value="depart">Leave</option>
                           
                         </select>
                     </div>
@@ -65,6 +65,18 @@
                     <label for="depart">Enter Reason:</label>
                     <input type="text" class="form-control select" id="depart">
                 </div>
+                
+                <div class="form-group local-forms">
+                    <label for="depart">Date to Leave:</label>
+                    <input type="text" class="form-control select" id="depart">
+                </div>
+
+                <div class="form-group local-forms">
+                    <label for="depart">Date to Return:</label>
+                    <input type="text" class="form-control select" id="depart">
+                </div>
+
+                
             </div>
             @endif
 

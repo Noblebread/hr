@@ -15,24 +15,17 @@ class Request extends Model
     
     protected $table = 'requests';
     protected $primaryKey = 'id';
-    protected $fillable = [ 'tool_id', 'user_id', 'borrower_id', 'status_id' ];
+    protected $fillable = [ 'user_id', 'category_id', 'type_id', '', 'status_id' ];
 
-    public function borrower(){
-        return $this->belongsTo(Borrower::class, 'borrower_id', 'id');
+    public function staff(){
+        return $this->belongsTo(Staff::class, 'staff_id', 'id');
     }
 
-    public function tool(){
-        return $this->belongsTo(Tool::class, 'tool_id', 'id');
-    }
 
     public function status(){
         return $this->belongsTo(Status::class, 'status_id', 'id');
     }
 
-    public function tool_keys()
-    {
-        return $this->hasMany(ToolRequest::class, 'request_id');
-    }
 
     public function user()
     {

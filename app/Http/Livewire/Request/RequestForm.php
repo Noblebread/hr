@@ -10,8 +10,7 @@ use App\Models\Borrower;
 
 class RequestForm extends Component
 {
-    // public $requestId, $tool_id, $user_id, $borrower_id, $status_id;
-    // public $toolItems = [];
+    public $requestId, $user_id, $staff_id, $status_id;
     public $action = '';  //flash
     public $message = '';  //flash
     public $search = '';
@@ -32,11 +31,11 @@ class RequestForm extends Component
     //edit
     public function requestId($requestId)
     {
-        // $this->requestId = $requestId;
-        // $request = Request::whereId($requestId)->first();
-        // $this->tool_id = $request->tool_id;
-        // $this->borrower_id = $request->borrower_id;
-        // //$this->status_id = $request->status_id;
+        $this->requestId = $requestId;
+        $request = Request::whereId($requestId)->first();
+       
+        $this->staff_id = $request->staff_id;
+        $this->status_id = $request->status_id;
         // if ($request->tool_keys != null) {
         //     $this->toolItems = collect($request->tool_keys)->map(function ($toolKey) {
         //         return ['toolId' => $toolKey->tool_id];
